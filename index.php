@@ -31,9 +31,9 @@ require 'php/db_conn.php';
 					);
 				}
 				?>
-				<div id="add-page-item" class="page-col-item">
+				<div class="page-col-item add">
 					<form action="javascript: addPage()">
-						<input id="add-page-textfield" 
+						<input id="add-page-field" 
 							class="page-textfield" type="text" placeholder="Add New Page">
 						<div class="right-btn-wrap">
 							<input type="submit" class="ade-button plus light" value=""/>
@@ -46,19 +46,19 @@ require 'php/db_conn.php';
 			<div class="left-col-header">Elements</div>
 			<div class="left-col-content">
 				<div class="single-elt">
-					<div id="title-icon" class="icon"></div>
+					<div id="title-icon" class="icon" draggable="true"></div>
 					<div class="icon-title">Title</div>
 				</div>
 				<div class="single-elt">
-					<div id="text-icon" class="icon"></div>
+					<div id="text-icon" class="icon" draggable="true"></div>
 					<div class="icon-title">Text</div>
 				</div>
 				<div class="single-elt">
-					<div id="img-icon" class="icon"></div>
+					<div id="img-icon" class="icon" draggable="true"></div>
 					<div class="icon-title">Image</div>
 				</div>
 				<div class="single-elt">
-					<div id="nav-icon" class="icon"></div>
+					<div id="nav-icon" class="icon" draggable="true"></div>
 					<div class="icon-title">Nav</div>
 				</div>
 			</div>	
@@ -78,13 +78,13 @@ require 'php/db_conn.php';
 					}
 				?>
 			</div>
-			<div class="add-image"></div>
-			<div class="add-title"></div>
-			<div class="add-text"></div>
+			<div id="content"></div>
 		</div>
 	</div>
 
 	<script src="js/jquery-1.11.2.min.js" type="text/javascript"></script>
+	<script src="js/weebly-trial-ade.js" type="text/javascript"></script>
+	<script src="js/weebly-trial-editor.js" type="text/javascript"></script>
 	<script src="js/weebly-trial.js" type="text/javascript"></script>
 </body>
 
