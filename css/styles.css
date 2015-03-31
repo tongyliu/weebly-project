@@ -71,19 +71,26 @@ html, body {
 .page-col-item {
 	margin-bottom: 10px;
 	background-color: #518dca;
-	height: 34px;
-	line-height: 34px;
-	padding-left: 17px;
 	font-family: ProximaNova-Sbold;
 	color: #fff;
 	font-size: 9pt;
 	border-radius: 3px;
+	width: 100%;
+	height: 34px;
 }
+
+.page-col-item .label {
+	padding-left: 17px;
+	display: inline-block;
+	height: 34px;
+	line-height: 34px;
+} 
 
 #add-page-item {
 	margin-bottom: 0;
 	padding: 0;
 	background-color: transparent;
+	height: 34px;
 	color: #4f657b;
 	-webkit-box-shadow: inset 2px 2px 0 #4f657b, inset -2px -2px 0 #4f657b;
 	box-shadow: inset 2px 2px 0 #4f657b, inset -2px -2px 0 #4f657b;
@@ -93,7 +100,7 @@ input#add-page-textfield {
 	margin: 0;
 	padding-left: 17px;
 	height: 32px;
-	width: 108px;
+	width: 124px;
 	font-family: ProximaNova-Sbold;
 	font-size: 9pt;
 	background-color: transparent;
@@ -128,17 +135,19 @@ input[type="submit"].button:focus {
 	outline: none;
 }
 
-.right-btn-wrap {
-	padding-right: 10px;
-	height: 100%;
+.right-btn-wrap {	
+	display: inline-block;
 	float: right;
+	height: 34px;
+	padding-right: 10px;
 }
 
 .ade-button {
+	display: inline-block;
 	width: 14px;
 	height: 14px;
 	border: none;
-	margin: auto;
+	margin: 10px 2px;
 	background: url(../assets/sprites/Add-Delete-Edit-Icons.png);
 }
 
@@ -146,6 +155,13 @@ input[type="submit"].button:focus {
 	background-position: -13px -13px;
 }
 
+.edit.light {
+	background-position: -35px -13px;
+}
+
+.delete.light {
+	background-position: -55px -13px;
+}
 
 /* = Elements
 ------------------------------------------*/

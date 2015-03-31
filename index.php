@@ -18,13 +18,21 @@ require 'php/db_conn.php';
 			<div class="left-col-header">Templates</div>
 			<div class="left-col-content">
 				<?php
-				$pages_table = $conn->query('SELECT pagename FROM pages');
+				$pages_table = $conn->query('SELECT * FROM pages');
 				foreach($pages_table as $row) {
-					echo('<div class="page-col-item">' . $row['pagename'] . '</div>');
+					echo('
+						<div class="page-col-item" data-page-id="' . $row['id'] . '"">
+							<div class="label">'. $row['pagename'] . '</div>
+							<div class="right-btn-wrap">
+								<a class="ade-button edit light" href="javascript: editPage();"></a>
+								<a class="ade-button delete light" href="javascript: deletePage();"></a>
+							</div>
+						</div>'
+					);
 				}
 				?>
 				<div id="add-page-item" class="page-col-item">
-					<form action="javascript: addPageSubmit()">
+					<form action="javascript: addPage()">
 						<input id="add-page-textfield" type="text" placeholder="Add New Page">
 						<div class="right-btn-wrap">
 							<input type="submit" class="ade-button plus light" value=""/>
@@ -64,8 +72,9 @@ require 'php/db_conn.php';
 			<div id="pages-row">
 				<?php
 				foreach($pages_table as $row) {
-					echo('<div class="page-row-item">' . $row['pagename'] . '</div>');
-				}
+					echo('<div class="page-row-item" data-page-id="' . $row['id'] . '"">' 
+						. $row['pagename'] . '</div>');
+					}
 				?>
 			</div>
 			<div class="add-image"></div>

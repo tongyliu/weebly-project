@@ -5,8 +5,15 @@
  * Tong Liu
  */
 
- function addPageSubmit() {
+ function addPage() {
  	console.log('Add page button pressed!');
- 	console.log($('#add-page-textfield').val());
  	$.post('php/add_page.php', {pagename: $('#add-page-textfield').val()})
+ }
+
+ function editPage() {
+ 	console.log('Edit page button pressed');	
+ }
+
+ function deletePage() {
+ 	console.log('Delete page button pressed');
  }
