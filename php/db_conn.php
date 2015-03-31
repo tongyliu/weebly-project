@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "sprintgood";
+$password = "*********";
 $dbname = "weebly";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
