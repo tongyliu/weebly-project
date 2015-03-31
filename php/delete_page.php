@@ -2,9 +2,9 @@
 
 require 'db_conn.php';
 
-$name = $conn->real_escape_string($_POST['pagename']);
+$id = $conn->real_escape_string($_POST['id']);
 
-$sql = 'INSERT INTO weebly . pages (pagename) VALUES (\'' . $name . '\')';
+$sql = 'DELETE FROM weebly . pages WHERE pages . id = ' . $id;
 $conn->query($sql);
 
 $conn->close();

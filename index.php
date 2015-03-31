@@ -24,8 +24,8 @@ require 'php/db_conn.php';
 						<div class="page-col-item" data-page-id="' . $row['id'] . '"">
 							<div class="label">'. $row['pagename'] . '</div>
 							<div class="right-btn-wrap">
-								<a class="ade-button edit light" href="javascript: editPage();"></a>
-								<a class="ade-button delete light" href="javascript: deletePage();"></a>
+								<a class="ade-button edit light"></a>
+								<a class="ade-button delete light"></a>
 							</div>
 						</div>'
 					);
