@@ -96,7 +96,7 @@ html, body {
 	box-shadow: inset 2px 2px 0 #4f657b, inset -2px -2px 0 #4f657b;
 }
 
-input#add-page-textfield {
+input.page-textfield {
 	margin: 0;
 	padding-left: 17px;
 	height: 32px;
@@ -109,26 +109,47 @@ input#add-page-textfield {
 	text-transform: uppercase;
 }
 
-input#add-page-textfield:focus {
+input.page-textfield:focus {
 	outline: none;
 }
 
 /* See: http://stackoverflow.com/questions/2610497 */
-input#add-page-textfield::-webkit-input-placeholder { /* WebKit browsers */
+input.page-textfield::-webkit-input-placeholder { /* WebKit browsers */
 	color: #4f657b;
 }
-input#add-page-textfield:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+input.page-textfield:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
 	color: #4f657b;
 	opacity: 1;
 }
 
-input#add-page-textfield::-moz-placeholder { /* Mozilla Firefox 19+ */
+input.page-textfield::-moz-placeholder { /* Mozilla Firefox 19+ */
 	color: #4f657b;
 	opacity:  1;
 }
 
-input#add-page-textfield:-ms-input-placeholder { /* Internet Explorer 10+ */
+input.page-textfield:-ms-input-placeholder { /* Internet Explorer 10+ */
 	color: #4f657b;
+}
+
+input.page-textfield.white::-webkit-input-placeholder { /* WebKit browsers */
+	color: #fff;
+}
+input.page-textfield.white:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: #fff;
+	opacity: 1;
+}
+
+input.page-textfield.white::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: #fff;
+	opacity:  1;
+}
+
+input.page-textfield.white:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: #fff;
+}
+
+input.page-textfield.white {
+	color: #fff;
 }
 
 input[type="submit"].button:focus {
@@ -155,11 +176,11 @@ input[type="submit"].button:focus {
 	background-position: -13px -13px;
 }
 
-.edit.light {
+.edit.light, .edit-submit.light {
 	background-position: -35px -13px;
 }
 
-.delete.light {
+.delete.light, .cancel.light {
 	background-position: -55px -13px;
 }
 

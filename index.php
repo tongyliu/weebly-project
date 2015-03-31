@@ -33,7 +33,8 @@ require 'php/db_conn.php';
 				?>
 				<div id="add-page-item" class="page-col-item">
 					<form action="javascript: addPage()">
-						<input id="add-page-textfield" type="text" placeholder="Add New Page">
+						<input id="add-page-textfield" 
+							class="page-textfield" type="text" placeholder="Add New Page">
 						<div class="right-btn-wrap">
 							<input type="submit" class="ade-button plus light" value=""/>
 						</div>
