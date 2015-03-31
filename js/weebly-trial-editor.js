@@ -62,12 +62,16 @@ function animateDropped(e) {
 	$(e.target).css('opacity', '1');
 }
 
+function getPageId() {
+	return $('#pages-row').find('.page-row-item.selected').attr('data-page-id');
+}
+
 function addTextBox() {
 	console.log('Gonna add a text box');
 	clearDrop();
 	var newId = $('#content').find('.elt').length;
 	console.log('newID: ' + newId);
-	var pageId = $('#pages-row').find('.page-row-item.selected').attr('data-page-id');
+	var pageId = getPageId();
 	$.post('php/add_page_elt.php', {type: 'text', elt_id: newId, page_id: pageId},
 	function(data) {
 		$('#new-elt-drop').before('\
@@ -79,7 +83,6 @@ function addTextBox() {
 				</form>\
 			</div>\
 		');
-		hookTextEditListener(newId);
 	});
 }
 
@@ -88,7 +91,7 @@ function addImageBox() {
 	clearDrop();
 	var newId = $('#content').find('.elt').length;
 	console.log('newID: ' + newId);
-	var pageId = $('#pages-row').find('.page-row-item.selected').attr('data-page-id');
+	var pageId = getPageId();
 	$.post('php/add_page_elt.php', {type: 'image', elt_id: newId, page_id: pageId},
 	function() {
 		getPageContent(pageId);
@@ -99,19 +102,39 @@ function clearDrop() {
 	$('#new-elt-drop').removeClass('drop-hover');
 }
 
-function hookTextEditListener(eID) {
-
+function hookTextEditListener(pID, eID) {
+	var currElt = $('.elt[data-elt-id="' + eID + '"]');
+	var oldText = currElt.html();
+	var height = currElt.css('height');
+	currElt.click(function() {
+		currElt.html('\
+			<form style="height:' + height + '"\
+				class="edit-text-form" action="javascript: finalizeTextBox('
+				+ pID + ', ' + eID + ')">\
+				<textarea style="height:100%">'+ oldText + '</textarea>\
+				<input type="submit" class="corner-button blue" value=""></input>\
+			</form>\
+		');
+		currElt.addClass('editing');
+		currElt.unbind();
+	});
 }
 
 function finalizeTextBox(pID, eID) {
-	console.log('Done');
-	var currElt = $('#content').find('.elt[data-elt-id="' + eID + '"]');
+	var currElt = $('.elt[data-elt-id="' + eID + '"]');
 	var txt = currElt.find('textarea').val();
-	console.log(txt);
 	$.post('php/edit_text_content.php', {page_id: pID, elt_id: eID, text: txt},
 	function() {
 		$('.text-box.editing').removeClass('editing');
 		currElt.html(txt);
+		hookTextEditListener(pID, eID);	
+	});
+}
+
+function hookAllTextEdits() {
+	var pageId = getPageId();
+	$('.text-box.elt').each(function() {
+		hookTextEditListener(pageId, $(this).attr('data-elt-id'));
 	});
 }
 
@@ -119,5 +142,6 @@ function getPageContent(pID) {
 	$.post('php/get_page_content.php', {page_id: pID}, function(data) {
 		$('#content').html(data);
 		enableDragAndDrop();
+		hookAllTextEdits();
 	});
 }

@@ -22,8 +22,6 @@ function addPage() {
 			</div>\
  		');
  		pagesList.css('max-height', pagesList.css('height'));
- 		addedItem.css('background-color', '#4f657b');
- 		addedItem.css('color', '#fff');
  		hookListeners(addedItem);
 	 	setTimeout(function() {
 	 		addedItem.removeClass('add');
@@ -40,6 +38,7 @@ function addPage() {
 		 	');
 		 	var deltaH = $('.page-col-item.add').height() + 10;
 		 	pagesList.css('max-height', pagesList.height() + deltaH);
+		 	updatePages();
 	 	}, 500);
 	 	$('#pages-row').html($('#pages-row').html() + '\
 	 		<div class="page-row-item" data-page-id="' + data +  '"">' 
@@ -83,6 +82,7 @@ function deletePage(id) {
 		setTimeout(function() {
 			deletedRow.remove();
 			pagesList.css('min-height', pagesList.height() - deltaH);
+			updatePages();
 		}, 500);
 		$('.page-row-item[data-page-id="' + data + '"]').remove();
  	});
@@ -124,6 +124,22 @@ function setSelectedPage(e) {
 	}
 }
 
+function updatePages() {
+	// If there is only one page left, select it automatically
+	if ($('#pages-row').find('.page-row-item').length == 1) {
+		console.log('selectin');
+		$($('.left-col-content').find('.page-col-item')[0]).addClass('selected');
+		$($('#pages-row').find('.page-row-item')[0]).addClass('selected');	
+	}
+	var id = $($('#pages-row').find('.page-row-item')[0]).attr('data-page-id');
+	if (id !== undefined) {
+		getPageContent(id);
+	}
+	else {
+		$('#content').html('<h3>No pages to show.</h3>');
+	}
+}
+
 function hookListeners(item) {
  	// See http://stackoverflow.com/questions/3485365/
  	// A Webkit quirk
@@ -139,4 +155,8 @@ function hookListeners(item) {
  		 item.css('background-color', '');
  	});
 	item.click(setSelectedPage);
+}
+
+function toggleSiteGrid() {
+	$('#site-grid-toggle').toggleClass('inactive');
 }

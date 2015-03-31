@@ -30,6 +30,8 @@ body {
 	width: 100%;
 	margin: 0;
 	z-index: 1;
+	-webkit-box-shadow: 3px 0 3px black;
+	box-shadow: 3px 0 3px black;
 }
 
 #left-col {
@@ -45,9 +47,11 @@ body {
 }
 
 #right-col {
-	padding-top: 43px;
-	padding-left: 235px;
+	margin-top: 43px;
+	margin-left: 236px;
 	overflow: scroll;
+	-webkit-box-shadow: 0 -3px 3px black;
+	box-shadow: 0 -3px 3px black;
 }
 
 /* = Top bar items 
@@ -71,6 +75,8 @@ body {
 	text-align: center;
 	background-color: #4f657b;
 	font-family: ProximaNova-Sbold;
+	-webkit-box-shadow: 3px 0 3px black;
+	box-shadow: 3px 0 3px black;
 }
 
 /* = Templates
@@ -220,12 +226,16 @@ input[type="submit"].button:focus {
 ------------------------------------------*/
 
 .single-elt {
-	border: 1px solid #1a2733;
+	border: 1px solid #21313f;
 	display: inline-block;
 	width: 116px;
 	height: 110px;
 	margin: 0;
 	float: left;
+}
+
+.single-elt:hover {
+	background-color: #3b4e63;
 }
 
 .icon {
@@ -270,9 +280,47 @@ input[type="submit"].button:focus {
 /* = Settings
 ------------------------------------------*/
 
-#settings {
-
+#settings .left-col-content {
+	height: 54px;
+	border-bottom: 2px solid #21313f;
 }
+
+#site-grid-label {
+	display: inline-block;
+	line-height: 54px;
+	padding-left: 32px;
+	text-transform: uppercase;
+	font-family: ProximaNova-Sbold;
+	font-size: 9pt;
+	color: #587087;
+}
+
+#site-grid-toggle {
+	display: inline-block;
+	position: relative;
+	float: right;
+	width: 82px;
+	height: 54px;
+}
+
+#grid-switch-img {
+	position: absolute;
+	left: 0px;
+	top: 17px;
+	height: 21px;
+	width: 50px;
+	background-image: url(../assets/sprites/Toggle-Switch.png);
+	background-position: -6px -57px;
+}
+
+#site-grid-toggle.inactive:hover > #grid-switch-img {
+	background-position: -6px -32px;
+}
+
+#site-grid-toggle.inactive > #grid-switch-img {
+	background-position: -6px -7px;
+}
+
 
 /* = Drag and drop
 ------------------------------------------------------------------------------*/
@@ -344,8 +392,8 @@ input[type="submit"].button:focus {
 
 .edit-text-form textarea {
 	width: 100%;
-	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box; 
 	margin: 0;
 	font-family: ProximaNova-Reg;

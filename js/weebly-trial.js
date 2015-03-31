@@ -2,8 +2,6 @@
  * weebly-trial.js
  *
  * Weebly Trial Project
- * General Javascript (onload, etc)
- *
  * Tong Liu
  */
 
@@ -18,6 +16,8 @@ $(document).ready(function() {
 	});
 	$('.page-col-item').click(setSelectedPage);
 
+	$('#site-grid-toggle').click(toggleSiteGrid);
+
 	// Set initially selected items
 	$($('.left-col-content').find('.page-col-item')[0]).addClass('selected');
 	$($('#pages-row').find('.page-row-item')[0]).addClass('selected');
@@ -28,6 +28,4 @@ $(document).ready(function() {
 	else {
 		$('#content').html('<h3>No pages to show.</h3>');
 	}
-
-
 });

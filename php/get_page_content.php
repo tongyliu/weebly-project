@@ -18,14 +18,13 @@ foreach($elts_table as $row) {
 			<div class="image elt" data-elt-id="' . $row['page_elt_id'] . '">
 				<img class="image-placeholder" src="assets/sprites/Image-Placeholder@2x.png"
 					alt="Placeholder"/>
-				<div class="image-label">Add Image </span></div>
+				<div class="image-label">Add Image <span class="large">+</span></div>
 			</div>
 		');
 	}
 }
 
 echo('<div id="new-elt-drop" class="elt"></div>');
-
 
 $conn->close();
 

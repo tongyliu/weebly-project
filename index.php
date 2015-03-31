@@ -65,7 +65,12 @@ require 'php/db_conn.php';
 		</div>
 		<div id="settings" class="col-item">
 			<div class="left-col-header">Settings</div>
-			<div class="left-col-content"></div>	
+			<div class="left-col-content">
+				<div id="site-grid-label">Site Grid</div>
+				<div id="site-grid-toggle" class="inactive">
+					<div id="grid-switch-img"></div>
+				</div>
+			</div>	
 		</div>
 	</div>
 	<div id="right-col">
